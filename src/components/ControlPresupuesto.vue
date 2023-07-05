@@ -18,7 +18,7 @@ const props = defineProps({
     required: true
   },
 })
-defineEmits(['reset-app'])
+defineEmits(['mostrar-modal'])
 
 const porcentaje = computed(() => {
   return parseInt(((props.presupuesto - props.disponible) / (props.presupuesto)) * 100)
@@ -63,8 +63,8 @@ const porcentaje = computed(() => {
         </p>
       </div>
     </div>
-    <button class="button sombra" @click="$emit('reset-app')">
-      Reiniciar
+    <button class="button sombra" @click="$emit('mostrar-modal')" title="Agregar Gasto">
+      Agregar Gasto
     </button>
   </div>
 </template>
@@ -111,8 +111,8 @@ const porcentaje = computed(() => {
     .icon-disponible,
     .icon-gastado {
       position: absolute;
-      top: 3rem;
-      right: 3rem;
+      top: 1.5rem;
+      right: 1.5rem;
       height: 4rem;
       width: 4rem;
       border-radius: 0.5rem;

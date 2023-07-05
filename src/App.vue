@@ -142,12 +142,12 @@ const resetApp = () => {
         @definir-presupuesto="definirPresupuesto"
       />
       <main v-else>
-        <Header :nombre="nombre" />
+        <Header :nombre="nombre" @reset-app="resetApp" />
         <ControlPresupuesto
             :presupuesto="presupuesto"
             :disponible="disponible"
             :gastado="gastado"
-            @reset-app="resetApp"
+            @mostrar-modal="mostrarModal"
           />
         <Filtros v-model:filtro="filtro" />
         <div v-if="gastosFiltrados.length > 0" class="listado-gastos contenedor">
@@ -160,9 +160,6 @@ const resetApp = () => {
           />
         </div>
         <Empty v-else />
-        <div class="crear-gasto sombra" @click="mostrarModal">
-          <i class="fa-solid fa-plus"></i>
-        </div>
         <Modal
           v-if="modal.mostrar"
           @ocultar-modal="ocultarModal"
@@ -239,7 +236,6 @@ select {
   color: var(--blanco);
   border-radius: 0.5rem;
   height: 5rem;
-  padding: 1rem;
   border: none;
   border: 1px solid;
   border-color: transparent transparent var(--blanco) transparent;
@@ -255,23 +251,6 @@ select {
 }
 .sombra {
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-}
-.crear-gasto {
-  position: fixed;
-  bottom: 5rem;
-  right: 5rem;
-  background: linear-gradient(135deg, #6583CC, #5524F5);
-  height: 5rem;
-  width: 5rem;
-  display: grid;
-  place-content: center;
-  font-size: 3rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  @media (max-width: 580px) {
-    bottom: 1rem;
-    right: 1rem;
-  }
 }
 .listado-gastos {
   margin-top: 3rem;
