@@ -21,7 +21,7 @@ const filtro = ref('')
 
 const gasto = reactive({
   nombre: '',
-  cantidad: 0,
+  cantidad: '',
   categoria: '',
   id: null,
   fecha: Date.now(),

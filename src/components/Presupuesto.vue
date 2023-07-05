@@ -52,7 +52,6 @@ const definirPresupuesto = () => {
           id="nuevo-presupuesto"
           class="nuevo-presupuesto"
           type="number"
-          step="any"
           placeholder="Presupuesto:"
           min="0"
           v-model.number="presupuesto"
