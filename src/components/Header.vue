@@ -6,9 +6,9 @@ defineEmits(['reset-app'])
 <template>
   <header class="contenedor user">
     <nav>
-      <div class="profile">
+      <a class="profile" href="https://carlosc.dev" target="_blank">
         <i class="fa-solid fa-user"></i>
-      </div>
+      </a>
       <h3>Hola, {{ nombre }}</h3>
     </nav>
     <button class="button danger sombra" @click="$emit('reset-app')" title="Reiniciar">
@@ -30,6 +30,7 @@ defineEmits(['reset-app'])
     font-size: 2rem;
   }
   .profile {
+  color: var(--blanco);
   background-color: var(--gris-oscuro);
   width: 5rem;
   height: 5rem;
