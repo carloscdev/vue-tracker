@@ -16,7 +16,7 @@ const props = defineProps({
     required: true
   },
   cantidad: {
-    type: [String, Number],
+    type: Number,
     required: true
   },
   categoria: {
@@ -107,8 +107,10 @@ const textoBoton = computed(() => props.id ? 'Editar' : 'Añadir')
             type="number"
             id="cantidad"
             placeholder="Ingresa un monto, ej. 300"
+            step="any"
+            min="0"
             :value="cantidad"
-            @input="$emit('update:cantidad', +$event.target.value)"
+            @input="$emit('update:cantidad', $event.target.value)"
           >
         </div>
         <div class="campo">
