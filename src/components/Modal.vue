@@ -145,6 +145,7 @@ const textoBoton = computed(() => props.id ? 'Editar' : 'Añadir')
   z-index: 200;
   padding-top: 15rem;
   overflow-y: hidden !important;
+  backdrop-filter: blur(5px);
 }
 .cerrar-modal {
   position: absolute;
